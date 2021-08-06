@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-e^+1wrxhbez=byog7t^6-bdvkw0hd(q#rcj1mesks+jt(v5u+@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["covidcashboard.heroku.com", "localhost"]
 
 # Application definition
 
