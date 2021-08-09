@@ -81,9 +81,9 @@ const barChart = new Chart(document.getElementById('barChart'), {
       ],
     },
     cornerRadius: 2,
-    maintainAspectRatio: false,
+    maintainAspectRatio: true,
     legend: {
-      display: false,
+      display: true,
     },
   },
 })
