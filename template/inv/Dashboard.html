@@ -27,495 +27,269 @@
         <aside class="flex-shrink-0 hidden w-64 bg-white border-r dark:border-primary-darker dark:bg-darker md:block">
           <div class="flex flex-col h-full">
             <!-- Sidebar links -->
-
-            <!-- Navigation Panel-->
-
-            <!-- Sidebar footer -->
-            <div class="flex-shrink-0 px-2 py-4 space-y-2">
-<div x-data="{ isActive: true, open: true}">
-                <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
-                <a
-                  href="#"
-                  @click="$event.preventDefault(); open = !open"
-                  class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
-                  :class="{'bg-primary-100 dark:bg-primary': isActive || open}"
-                  role="button"
-                  aria-haspopup="true"
-                  :aria-expanded="(open || isActive) ? 'true' : 'false'"
-                >
-                  <span aria-hidden="true">
-                    <svg
-                      class="w-5 h-5"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                      />
-                    </svg>
-                  </span>
-                  <span class="ml-2 text-sm"> <b>Dashboards</b> </span>
-                </a>
-                </div>
-              <nav aria-label="Main" class="flex-1 px-2 py-4 space-y-2 overflow-y-hidden hover:overflow-y-auto">
+            <nav aria-label="Main" class="flex-1 px-2 py-4 space-y-2 overflow-y-hidden hover:overflow-y-auto">
               <!-- Dashboards links -->
-              <div x-data="{ isActive: true, open: true}">
-                <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
-                <a
-                  href="#"
-                  @click="$event.preventDefault(); open = !open"
-                  class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
-                  :class="{'bg-primary-100 dark:bg-primary': isActive || open}"
-                  role="button"
-                  aria-haspopup="true"
-                  :aria-expanded="(open || isActive) ? 'true' : 'false'"
-                >
-
-                  <span class="ml-2 text-sm"> NORTHERN REGION </span>
-                  <span class="ml-auto" aria-hidden="true">
-                    <!-- active class 'rotate-180' -->
-                    <svg
-                      class="w-4 h-4 transition-transform transform"
-                      :class="{ 'rotate-180': open }"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </span>
-                </a>
-                <div role="menu" x-show="open" class="mt-2 space-y-2 px-7" aria-label="Dashboards">
-                  <!-- active & hover classes 'text-gray-700 dark:text-light' -->
-                  <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
-                  <a
-                    href="index.html"
-                    role="menuitem"
-                    class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700"
-                  >
-                    Chandigarh
-                  </a>
-                  <a
-                    href="#"
-                    role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                  >
-                    Delhi
-                  </a>
-                  <a
-                    href="#"
-                    role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                  >
-                    Haryana
-                  </a>
-                  <a
-                    href="#"
-                    role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                  >
-                    Himachal Pradesh
-                  </a>
-                  <a
-                    href="#"
-                    role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                  >
-                    Jammu & Kashmir
-                  </a>
-                  <a
-                    href="#"
-                    role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                  >
-                    Punjab
-                  </a>
-                  <a
-                    href="#"
-                    role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                  >
-                    Rajasthan
-                  </a>
-
-                </div>
-              </div>
-
-              <!-- Components links -->
-              <div x-data="{ isActive: false, open: false }">
-                <!-- active classes 'bg-primary-100 dark:bg-primary' -->
-                <a
-                  href="#"
-                  @click="$event.preventDefault(); open = !open"
-                  class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
-                  :class="{ 'bg-primary-100 dark:bg-primary': isActive || open }"
-                  role="button"
-                  aria-haspopup="true"
-                  :aria-expanded="(open || isActive) ? 'true' : 'false'"
-                >
-
-                  <span class="ml-2 text-sm"> NORTH-EASTERN REGION </span>
-                  <span aria-hidden="true" class="ml-auto">
-                    <!-- active class 'rotate-180' -->
-                    <svg
-                      class="w-4 h-4 transition-transform transform"
-                      :class="{ 'rotate-180': open }"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </span>
-                </a>
-                <div x-show="open" class="mt-2 space-y-2 px-7" role="menu" arial-label="Components">
-                  <!-- active & hover classes 'text-gray-700 dark:text-light' -->
-                  <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
-                  <a
-                    href="#"
-                    role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
-                  >
-                    Arunachal Pradesh
-                  </a>
-                  <a
-                    href="#"
-                    role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
-                  >
-                    Assam
-                  </a>
-                  <a
-                    href="#"
-                    role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                  >
-                    Manipur
-                  </a>
-                  <a
-                    href="#"
-                    role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                  >
-                    Meghalaya
-                  </a>
-                  <a
-                    href="#"
-                    role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                  >
-                    Mizoram
-                  </a>
-                  <a
-                    href="#"
-                    role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                  >
-                    Nagaland
-                  </a>
-                  <a
-                    href="#"
-                    role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                  >
-                    Tripura
-                  </a>
-                </div>
-              </div>
-
-              <!-- Pages links -->
-              <div x-data="{ isActive: false, open: false }">
-                <!-- active classes 'bg-primary-100 dark:bg-primary' -->
-                <a
-                  href="#"
-                  @click="$event.preventDefault(); open = !open"
-                  class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
-                  :class="{ 'bg-primary-100 dark:bg-primary': isActive || open }"
-                  role="button"
-                  aria-haspopup="true"
-                  :aria-expanded="(open || isActive) ? 'true' : 'false'"
-                >
-
-                  <span class="ml-2 text-sm">  EASTERN REGION </span>
-                  <span aria-hidden="true" class="ml-auto">
-                    <!-- active class 'rotate-180' -->
-                    <svg
-                      class="w-4 h-4 transition-transform transform"
-                      :class="{ 'rotate-180': open }"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </span>
-                </a>
-                <div x-show="open" class="mt-2 space-y-2 px-7" role="menu" arial-label="Pages">
-                  <!-- active & hover classes 'text-gray-700 dark:text-light' -->
-                  <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
-                  <a
-                    href="pages/blank.html"
-                    role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
-                  >
-                    Andaman & Nicobar Islands
-                  </a>
-                  <a
-                    href="pages/404.html"
-                    role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
-                  >
-                    Bihar
-                  </a>
-                  <a
-                    href="pages/500.html"
-                    role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
-                  >
-                    Jharkhand
-                  </a>
-                  <a
-                    href="#"
-                    role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
-                  >
-                    Orissa
-                  </a>
-                  <a
-                    href="#"
-                    role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                  >
-                    Sikkim
-                  </a>
-                  <a
-                    href="#"
-                    role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                  >
-                    West Bengal
-                  </a>
-
-                </div>
-              </div>
-
-              <!-- Authentication links -->
-              <div x-data="{ isActive: false, open: false}">
-                <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
-                <a
-                  href="#"
-                  @click="$event.preventDefault(); open = !open"
-                  class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
-                  :class="{'bg-primary-100 dark:bg-primary': isActive || open}"
-                  role="button"
-                  aria-haspopup="true"
-                  :aria-expanded="(open || isActive) ? 'true' : 'false'"
-                >
-
-                  <span class="ml-2 text-sm"> CENTRAL REGION </span>
-                  <span aria-hidden="true" class="ml-auto">
-                    <!-- active class 'rotate-180' -->
-                    <svg
-                      class="w-4 h-4 transition-transform transform"
-                      :class="{ 'rotate-180': open }"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </span>
-                </a>
-                <div x-show="open" class="mt-2 space-y-2 px-7" role="menu" aria-label="Authentication">
-                  <!-- active & hover classes 'text-gray-700 dark:text-light' -->
-                  <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
-                  <a
-                    href="auth/register.html"
-                    role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                  >
-                    Chhattisgarh
-                  </a>
-                  <a
-                    href="auth/login.html"
-                    role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                  >
-                    Madhya Pradesh
-                  </a>
-                  <a
-                    href="auth/forgot-password.html"
-                    role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                  >
-                    Uttar Pradesh
-                  </a>
-                  <a
-                    href="auth/reset-password.html"
-                    role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                  >
-                    Uttaranchal
-                  </a>
-                </div>
-              </div>
 
               <!-- Layouts links -->
-              <div x-data="{ isActive: false, open: false}">
-                <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
-                <a
-                  href="#"
-                  @click="$event.preventDefault(); open = !open"
-                  class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
-                  :class="{'bg-primary-100 dark:bg-primary': isActive || open}"
-                  role="button"
-                  aria-haspopup="true"
-                  :aria-expanded="(open || isActive) ? 'true' : 'false'"
-                >
+              <form method="post" enctype="multipart/form-data" action="select_state">
+                      {% csrf_token %}
 
-                  <span class="ml-2 text-sm"> WESTERN REGION </span>
-                  <span aria-hidden="true" class="ml-auto">
-                    <!-- active class 'rotate-180' -->
-                    <svg
-                      class="w-4 h-4 transition-transform transform"
-                      :class="{ 'rotate-180': open }"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </span>
-                </a>
-                <div x-show="open" class="mt-2 space-y-2 px-7" role="menu" aria-label="Layouts">
-                  <!-- active & hover classes 'text-gray-700 dark:text-light' -->
-                  <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
-                  <a
-                    href="layouts/two-columns-sidebar.html"
-                    role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
-                  >
-                    Dadra & Nagar Haveli
-                  </a>
-                  <a
-                    href="layouts/mini-plus-one-columns-sidebar.html"
-                    role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
-                  >
-                    Daman & Diu
-                  </a>
-                  <a
-                    href="layouts/mini-column-sidebar.html"
-                    role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
-                  >
-                    Goa
-                  </a>
-                  <a
-                    href="layouts/mini-column-sidebar.html"
-                    role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
-                  >
-                    Gujarat
-                  </a>
-                  <a
-                    href="layouts/mini-column-sidebar.html"
-                    role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
-                  >
-                    Maharashtra
-                  </a>
-                </div>
-              </div>
-
-                <div x-data="{ isActive: false, open: false}">
-                <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
-                <a
-                  href="#"
-                  @click="$event.preventDefault(); open = !open"
-                  class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
-                  :class="{'bg-primary-100 dark:bg-primary': isActive || open}"
-                  role="button"
-                  aria-haspopup="true"
-                  :aria-expanded="(open || isActive) ? 'true' : 'false'"
-                >
-
-                  <span class="ml-2 text-sm"> SOUTHERN REGION </span>
-                  <span aria-hidden="true" class="ml-auto">
-                    <!-- active class 'rotate-180' -->
-                    <svg
-                      class="w-4 h-4 transition-transform transform"
-                      :class="{ 'rotate-180': open }"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </span>
-                </a>
-                <div x-show="open" class="mt-2 space-y-2 px-7" role="menu" aria-label="Layouts">
-                  <!-- active & hover classes 'text-gray-700 dark:text-light' -->
-                  <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
-                  <a
-                    href="layouts/two-columns-sidebar.html"
-                    role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
-                  >
-                    Andhra Pradesh
-                  </a>
-                  <a
-                    href="layouts/mini-plus-one-columns-sidebar.html"
-                    role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
-                  >
-                    Karnataka
-                  </a>
-                  <a
-                    href="layouts/mini-column-sidebar.html"
-                    role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
-                  >
-                    Kerala
-                  </a>
-                  <a
-                    href="layouts/mini-column-sidebar.html"
-                    role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
-                  >
-                    Lakshadweep
-                  </a>
-                  <a
-                    href="layouts/mini-column-sidebar.html"
-                    role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
-                  >
-                    Pondicherry
-                  </a>
-
-                  <a
-                    href="layouts/mini-column-sidebar.html"
-                    role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
-                  >
-                    Tamil Nadu
-                  </a>
-                </div>
-              </div>
-
+                      <input
+                        type = "Submit"
+                        value = "Chandigarh"
+                        name="state_name"
+                        style="width:170px;"
+                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+                      >
+                      <input
+                        type = "Submit"
+                        value = "Delhi"
+                        name="state_name"
+                        style="width:170px;margin-top: 5px"
+                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+                      >
+                       <input
+                        type = "Submit"
+                        value = "Haryana"
+                        name="state_name"
+                        style="width:170px;margin-top: 5px"
+                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+                      >
+                       <input
+                        type = "Submit"
+                        value = "Himachal Pradesh"
+                        name="state_name"
+                        style="width:170px;margin-top: 5px"
+                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+                      >
+                       <input
+                        type = "Submit"
+                        value = "Jammu and Kashmir"
+                        name="state_name"
+                        style="width:170px;margin-top: 5px"
+                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+                      >
+                       <input
+                        type = "Submit"
+                        value = "Punjab"
+                        name="state_name"
+                        style="width:170px;margin-top: 5px"
+                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+                      >
+                       <input
+                        type = "Submit"
+                        value = "Rajasthan"
+                        name="state_name"
+                        style="width:170px;margin-top: 5px"
+                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+                      >
+              <input
+                        type = "Submit"
+                        value = "Andhra Pradesh"
+                        name="state_name"
+                        style="width:170px;margin-top: 5px"
+                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+                      >
+                    <input
+                        type = "Submit"
+                        value = "Assam"
+                        name="state_name"
+                        style="width:170px;margin-top: 5px"
+                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+                      >
+                    <input
+                        type = "Submit"
+                        value = "Manipur"
+                        name="state_name"
+                        style="width:170px;margin-top: 5px"
+                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+                      >
+                    <input
+                        type = "Submit"
+                        value = "Meghalaya"
+                        name="state_name"
+                        style="width:170px;margin-top: 5px"
+                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+                      >
+                    <input
+                        type = "Submit"
+                        value = "Mizoram"
+                        name="state_name"
+                        style="width:170px;margin-top: 5px"
+                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+                      >
+                    <input
+                        type = "Submit"
+                        value = "Nagaland"
+                        name="state_name"
+                        style="width:170px;margin-top: 5px"
+                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+                      >
+                    <input
+                        type = "Submit"
+                        value = "Tripura"
+                        name="state_name"
+                        style="width:170px;margin-top: 5px"
+                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+                      >
+                  <input
+                        type = "Submit"
+                        value = "Andaman and Nicobar Islands"
+                        name="state_name"
+                        style="width:170px;margin-top: 5px"
+                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+                      >
+                    <input
+                        type = "Submit"
+                        value = "Bihar"
+                        name="state_name"
+                        style="width:170px;margin-top: 5px"
+                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+                      >
+                    <input
+                        type = "Submit"
+                        value = "Jharkhand"
+                        name="state_name"
+                        style="width:170px;margin-top: 5px"
+                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+                      >
+                    <input
+                        type = "Submit"
+                        value = "Odisha"
+                        name="state_name"
+                        style="width:170px;margin-top: 5px"
+                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+                      >
+                    <input
+                        type = "Submit"
+                        value = "Sikkim"
+                        name="state_name"
+                        style="width:170px;margin-top: 5px"
+                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+                      >
+                    <input
+                        type = "Submit"
+                        value = "West Bengal"
+                        name="state_name"
+                        style="width:170px;margin-top: 5px"
+                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+                      >
+                    <input
+                        type = "Submit"
+                        value = "Chhattisgarh"
+                        name="state_name"
+                        style="width:170px;margin-top: 5px"
+                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+                      >
+                    <input
+                        type = "Submit"
+                        value = "Madhya Pradesh"
+                        name="state_name"
+                        style="width:170px;margin-top: 5px"
+                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+                      >
+                    <input
+                        type = "Submit"
+                        value = "Uttar Pradesh"
+                        name="state_name"
+                        style="width:170px;margin-top: 5px"
+                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+                      >
+                    <input
+                        type = "Submit"
+                        value = "Uttarakhand"
+                        name="state_name"
+                        style="width:170px;margin-top: 5px"
+                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+                      >
+              <input
+                        type = "Submit"
+                        value = "Dadra and Nagar Haveli and Daman and Diu"
+                        name="state_name"
+                        style="width:170px;margin-top: 5px"
+                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+                      >
+                    <input
+                        type = "Submit"
+                        value = "Goa"
+                        name="state_name"
+                        style="width:170px;margin-top: 5px"
+                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+                      >
+                    <input
+                        type = "Submit"
+                        value = "Gujarat"
+                        name="state_name"
+                        style="width:170px;margin-top: 5px"
+                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+                      >
+                    <input
+                        type = "Submit"
+                        value = "Maharashtra"
+                        name="state_name"
+                        style="width:170px;margin-top: 5px"
+                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+                      >
+                    <input
+                        type = "Submit"
+                        value = "Andhra Pradesh"
+                        name="state_name"
+                        style="width:170px;margin-top: 5px"
+                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+                      >
+                    <input
+                        type = "Submit"
+                        value = "Karnataka"
+                        name="state_name"
+                        style="width:170px;margin-top: 5px"
+                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+                      >
+                    <input
+                        type = "Submit"
+                        value = "Kerala"
+                        name="state_name"
+                        style="width:170px;margin-top: 5px"
+                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+                      >
+                    <input
+                        type = "Submit"
+                        value = "Lakshadweep"
+                        name="state_name"
+                        style="width:170px;margin-top: 5px"
+                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+                      >
+                    <input
+                        type = "Submit"
+                        value = "Puducherry"
+                        name="state_name"
+                        style="width:170px;margin-top: 5px"
+                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+                      >
+                    <input
+                        type = "Submit"
+                        value = "Tamil Nadu"
+                        name="state_name"
+                        style="width:170px;margin-top: 5px"
+                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+                      >
+              </form>
             </nav>
+
+            <!-- Sidebar footer -->
+            <div class="flex-shrink-0 px-2 py-4 space-y-2"><div x-data="{ isActive: true, open: true}">
+                  <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
+                <form method="post" enctype="multipart/form-data" action="all_over_india">
+                    {% csrf_token %}
+                    <input
+                        type = "Submit"
+                        value = "All Over India"
+                        name="state_name"
+                        style="width:240px;"
+                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+                      >
+                </form>
             </div>
+          </div>
           </div>
         </aside>
 
@@ -575,7 +349,7 @@
               </button>
 
               <!-- Desktop Right buttons -->
-              <nav aria-label="Secondary" class="hidden space-x-2 md:flex md:items-center">
+              <nav aria-label="Secondary" class="hidden space-x-2 md:flex md:items-center" >
                 <!-- Toggle dark theme button -->
                 <button aria-hidden="true" class="relative focus:outline-none" x-cloak @click="toggleTheme">
                   <div
@@ -741,7 +515,7 @@
                     <a
                       href="#"
                       role="menuitem"
-                      class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
+                        class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
                     >
                       Logout
                     </a>
@@ -1314,7 +1088,7 @@
                     >
                       Confirmed
                     </h6>
-                    <span class="text-xl font-semibold">3,18,55,787</span>
+                    <span class="text-xl font-semibold">{{ Confirmed }}</span>
                     <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
                       +4.4%
                     </span>
@@ -1322,24 +1096,7 @@
                       Need to add line chart
                     </div>
                   </div>
-                  <div>
-                    <span>
-                      <svg
-                        class="w-12 h-12 text-gray-300 dark:text-primary-dark"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-                        />
-                      </svg>
-                    </span>
-                  </div>
+
                 </div>
 
                 <!-- Users card -->
@@ -1350,7 +1107,7 @@
                     >
                       Active
                     </h6>
-                    <span class="text-xl font-semibold">4,08,266</span>
+                    <span class="text-xl font-semibold">{{ Active }}</span>
                     <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
                       +2.6%
                     </span>
@@ -1358,24 +1115,7 @@
                       Need to add line chart
                     </div>
                   </div>
-                  <div>
-                    <span>
-                      <svg
-                        class="w-12 h-12 text-gray-300 dark:text-primary-dark"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-                        />
-                      </svg>
-                    </span>
-                  </div>
+
 
                 </div>
 
@@ -1387,7 +1127,7 @@
                     >
                       Recovered
                     </h6>
-                    <span class="text-xl font-semibold">3,10,08,133</span>
+                    <span class="text-xl font-semibold">{{ Recovered }}</span>
                     <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
                       +3.1%
                     </span>
@@ -1395,24 +1135,7 @@
                       Need to add line chart
                     </div>
                   </div>
-                  <div>
-                    <span>
-                      <svg
-                        class="w-12 h-12 text-gray-300 dark:text-primary-dark"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M13 7h8m0 0v8m0-8l-8 8-6 6"
-                        />
-                      </svg>
-                    </span>
-                  </div>
+
 
                 </div>
 
@@ -1424,7 +1147,7 @@
                     >
                       Deceased
                     </h6>
-                    <span class="text-xl font-semibold">4,26,785</span>
+                    <span class="text-xl font-semibold">{{ Deaths }}</span>
                     <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
                       +3.1%
                     </span>
@@ -1432,24 +1155,7 @@
                       Need to add line chart
                     </div>
                   </div>
-                  <div>
-                    <span>
-                      <svg
-                        class="w-12 h-12 text-gray-300 dark:text-primary-dark"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M13 7h8m0 0v8m0-8l-8 8-6 6"
-                        />
-                      </svg>
-                    </span>
-                  </div>
+
                 </div>
               </div>
 
@@ -2101,7 +1807,7 @@
               <h3 class="py-2 text-sm font-semibold text-gray-600 dark:text-light">History</h3>
               <a href="#" class="flex space-x-4">
                 <div class="flex-shrink-0">
-                  <img class="w-10 h-10 rounded-lg" src="static/image/cover.jpg" alt="Post cover" />
+                  <img class="w-10 h-10 rounded-lg" src="static/image/irshad.jpg" alt="Post cover" />
                 </div>
                 <div class="flex-1 max-w-xs overflow-hidden">
                   <h4 class="text-sm font-semibold text-gray-600 dark:text-light">Header</h4>
@@ -2125,7 +1831,7 @@
               </a>
               <a href="#" class="flex space-x-4">
                 <div class="flex-shrink-0">
-                  <img class="w-10 h-10 rounded-lg" src="static/image/cover-2.jpg" alt="Covid-19 Dashboard" />
+                  <img class="w-10 h-10 rounded-lg" src="static/image/irshad.jpg" alt="Covid-19 Dashboard" />
                 </div>
                 <div class="flex-1 max-w-xs overflow-hidden">
                   <h4 class="text-sm font-semibold text-gray-600 dark:text-light">Covid-19 Dashboard</h4>
@@ -2138,7 +1844,7 @@
               <template x-for="i in 10" x-key="i">
                 <a href="#" class="flex space-x-4">
                   <div class="flex-shrink-0">
-                    <img class="w-10 h-10 rounded-lg" src="static/image/cover-3.jpg" alt="Covid-19 Dashboard" />
+                    <img class="w-10 h-10 rounded-lg" src="static/image/irshad.jpg" alt="Covid-19 Dashboard" />
                   </div>
                   <div class="flex-1 max-w-xs overflow-hidden">
                     <h4 class="text-sm font-semibold text-gray-600 dark:text-light">Covid-19 Dashboard</h4>
