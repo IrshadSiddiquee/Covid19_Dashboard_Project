@@ -1,13 +1,6 @@
 from django.shortcuts import render
 from Inv.importdata import get_case
 
-
-# state_wise_cases = pd.read_csv('https://api.covid19india.org/csv/latest/state_wise.csv')
-#
-# sub = state_wise_cases[state_wise_cases['State'] == 'Total'].iloc[:, 1:5].to_dict('records')
-# print(sub[0])
-
-
 # Create your views here.
 
 

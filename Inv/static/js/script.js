@@ -1,7 +1,11 @@
-// All javascript code in this project for now is just for demo DON'T RELY ON IT
+
 
 const random = (max = 100) => {
   return Math.round(Math.random() * max) + 20
+}
+
+const get_data = () => {
+
 }
 
 const randomData = () => {
@@ -81,9 +85,9 @@ const barChart = new Chart(document.getElementById('barChart'), {
       ],
     },
     cornerRadius: 2,
-    maintainAspectRatio: true,
+    maintainAspectRatio: false,
     legend: {
-      display: true,
+      display: false,
     },
   },
 })
@@ -91,10 +95,10 @@ const barChart = new Chart(document.getElementById('barChart'), {
 const doughnutChart = new Chart(document.getElementById('doughnutChart'), {
   type: 'doughnut',
   data: {
-    labels: ['Oct', 'Nov', 'Dec'],
+    labels: ['Recovered', 'Deaths', 'Active'],
     datasets: [
       {
-        data: [random(), random(), random()],
+        data: [random(), random(), random() ],
         backgroundColor: [colors.primary, colors.primaryLighter, colors.primaryLight],
         hoverBackgroundColor: colors.primaryDark,
         borderWidth: 0,
