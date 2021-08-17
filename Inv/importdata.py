@@ -123,8 +123,8 @@ def get_month_wise_case(state):
             }
 
 
-subs = get_month_wise_case("Nagaland")
-print(subs['daily_cases'])
+# subs = get_month_wise_case("Nagaland")
+# print(subs['daily_cases'])
 
 # state = (get_state_code('Nagaland'))
 # today_date = dt = date.today() - timedelta(1)
