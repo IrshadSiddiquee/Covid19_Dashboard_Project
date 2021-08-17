@@ -1048,11 +1048,15 @@
                       Confirmed
                     </h6>
                     <span class="text-xl font-semibold">{{ Cases.Confirmed }}</span>
-                    <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
+                    <span id='daily_confirmed_case' class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md" style="color: red">
+
                       {{ daily_cases.Confirmed }}
+
                     </span>
                     <div>
-                      Need to add line charts
+                      <div>
+                        <canvas id="daily_confirmed_line_chart" style="width:210px; height:75px"></canvas>
+                      </div>
                     </div>
                   </div>
 
@@ -1085,11 +1089,13 @@
                       Recovered
                     </h6>
                     <span class="text-xl font-semibold">{{ Cases.Recovered }}</span>
-                    <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
+                    <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md" style="color: blue">
                       {{ daily_cases.Recovered }}
                     </span>
                     <div>
-                      Need to add line chart
+                      <div>
+                        <canvas id="daily_recovered_line_chart" style="width:210px; height:75px"></canvas>
+                      </div>
                     </div>
                   </div>
 
@@ -1105,11 +1111,13 @@
                       Deceased
                     </h6>
                     <span class="text-xl font-semibold">{{ Cases.Deaths }}</span>
-                    <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
+                    <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md" style="color: black">
                       {{ daily_cases.Deceased }}
                     </span>
                     <div>
-                      Need to add line chart
+                      <div>
+                        <canvas id="daily_deceased_line_chart" style="width:210px; height:75px"></canvas>
+                      </div>
                     </div>
                   </div>
 
@@ -1877,6 +1885,132 @@
         primaryDarker: cssColors(`--color-${getColor()}-darker`),
       }
 
+      const daily_confirmed_line_chart = new Chart(document.getElementById('daily_confirmed_line_chart'), {
+        type: 'line',
+        data: {
+          labels: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'],
+          datasets: [
+            {
+              data: {{ ten_days_case.Confirmed }},
+              borderColor: 'rgb(255, 0, 0 )',
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          scales: {
+            yAxes: [
+              {
+                gridLines: false,
+                ticks: {
+                  display: false,
+                },
+              },
+            ],
+            xAxes: [
+              {
+                gridLines: false,
+                ticks: {
+                  display: false,
+                },
+              },
+            ],
+          },
+          maintainAspectRatio: false,
+          legend: {
+            display: false,
+          },
+          tooltips: {
+            hasIndicator: false,
+            intersect: false,
+          },
+        },
+      })
+
+      const daily_recovered_line_chart = new Chart(document.getElementById('daily_recovered_line_chart'), {
+        type: 'line',
+        data: {
+          labels: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'],
+          datasets: [
+            {
+              data: {{ ten_days_case.Recovered }},
+              borderColor: 'rgb(0, 0, 255)',
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          scales: {
+            yAxes: [
+              {
+                gridLines: false,
+                ticks: {
+                  display: false,
+                },
+              },
+            ],
+            xAxes: [
+              {
+                gridLines: false,
+                ticks: {
+                  display: false,
+                },
+              },
+            ],
+          },
+          maintainAspectRatio: false,
+          legend: {
+            display: false,
+          },
+          tooltips: {
+            hasIndicator: false,
+            intersect: false,
+          },
+        },
+      })
+
+      const daily_deceased_line_chart = new Chart(document.getElementById('daily_deceased_line_chart'), {
+        type: 'line',
+        data: {
+          labels: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'],
+          datasets: [
+            {
+              data: {{ ten_days_case.Deceased }},
+              borderColor: 'gray',
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          scales: {
+            yAxes: [
+              {
+                gridLines: false,
+                ticks: {
+                  display: false,
+                },
+              },
+            ],
+            xAxes: [
+              {
+                gridLines: false,
+                ticks: {
+                  display: false,
+                },
+              },
+            ],
+          },
+          maintainAspectRatio: false,
+          legend: {
+            display: false,
+          },
+          tooltips: {
+            hasIndicator: false,
+            intersect: false,
+          },
+        },
+      })
+
       const barChart = new Chart(document.getElementById('barChart'), {
         type: 'bar',
         data: {
@@ -2045,7 +2179,6 @@
           },
         },
       })
-
 
     </script>
     <script>

@@ -38,6 +38,25 @@ def get_state_wise_daily_case(state_code, current_date):
     return cases
 
 
+def get_ten_days_cases(state_code):
+    confirmed_cases = []
+    recovered_cases = []
+    deceased_cases = []
+    last_ten_days = date.today() - timedelta(10)
+    case = pd.DataFrame(state_wise_per_day_case.loc[(state_wise_per_day_case["Date_YMD"] >= str(last_ten_days))],
+                        columns=[str(state_code)])
+    for i in range(0, len(case), 3):
+        confirmed_cases.append(case.iloc[i][str(state_code)])
+        recovered_cases.append(case.iloc[i + 1][str(state_code)])
+        deceased_cases.append(case.iloc[i + 2][str(state_code)])
+
+    cases = {'Confirmed': confirmed_cases,
+             'Recovered': recovered_cases,
+             'Deceased': deceased_cases}
+
+    return cases
+
+
 def get_month_wise_case(state):
     month = []
     current_year_confirmed_case = []
@@ -111,6 +130,7 @@ def get_month_wise_case(state):
         state_code = get_state_code(state)
 
     daily_cases = get_state_wise_daily_case(state_code, last_day)
+    ten_days_case = get_ten_days_cases(state_code)
     return {'Month': month,
             'current_year_confirmed_case': current_year_confirmed_case,
             'current_year_deceased_case': current_year_deceased_case,
@@ -119,15 +139,6 @@ def get_month_wise_case(state):
             'last_year_recovered_case': last_year_recovered_case,
             'last_year_deceased_case': last_year_deceased_case,
             'Cases': case_data,
-            'daily_cases': daily_cases
+            'daily_cases': daily_cases,
+            'ten_days_case': ten_days_case
             }
-
-
-# subs = get_month_wise_case("Nagaland")
-# print(subs['daily_cases'])
-
-# state = (get_state_code('Nagaland'))
-# today_date = dt = date.today() - timedelta(1)
-# daily_case = get_state_wise_daily_case(state, today_date)
-# print(daily_case)
-# # print(get_case("Bihar"))
