@@ -407,8 +407,19 @@
                 </div>
               </div>
               <div>
-                <div class="col-span-1 relative p-4 h-72 bg-white rounded-md dark:bg-darker">
-                  <canvas id="lineChartStateWise"></canvas>
+                <div class="relative p-4 h-72 bg-white rounded-md dark:bg-darker" style="height: 220px; width:1060px; margin-left: 16px; margin-bottom: 16px">
+                  <canvas id="lineChartConfirmed"></canvas>
+                </div>
+              </div>
+              <div>
+                <div class="relative p-4 h-72 bg-white rounded-md dark:bg-darker" style="height: 220px; width:1060px; margin-left: 16px; margin-bottom: 16px">
+                  <canvas id="lineChartRecovered"></canvas>
+                </div>
+              </div>
+
+              <div>
+                <div class="relative p-4 h-72 bg-white rounded-md dark:bg-darker" style="height: 220px; width:1060px; margin-left: 16px; margin-bottom: 16px">
+                  <canvas id="lineChartDeceased"></canvas>
                 </div>
               </div>
             </div>
@@ -1056,7 +1067,7 @@
       const daily_confirmed_line_chart = new Chart(document.getElementById('daily_confirmed_line_chart'), {
         type: 'line',
         data: {
-          labels: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'],
+          labels: ['Day-10', 'Day-9', 'Day-8', 'Day-7', 'Day-6', 'Day-5', 'Day-4', 'Day-3', 'Day-2', 'Day-1'],
           datasets: [
             {
               data: {{ ten_days_case.Confirmed }},
@@ -1098,7 +1109,7 @@
       const daily_active_line_chart = new Chart(document.getElementById('daily_active_line_chart'), {
         type: 'line',
         data: {
-          labels: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'],
+          labels: ['Day-10', 'Day-9', 'Day-8', 'Day-7', 'Day-6', 'Day-5', 'Day-4', 'Day-3', 'Day-2', 'Day-1'],
           datasets: [
             {
               data: randomData(),
@@ -1140,7 +1151,7 @@
       const daily_recovered_line_chart = new Chart(document.getElementById('daily_recovered_line_chart'), {
         type: 'line',
         data: {
-          labels: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'],
+          labels: ['Day-10', 'Day-9', 'Day-8', 'Day-7', 'Day-6', 'Day-5', 'Day-4', 'Day-3', 'Day-2', 'Day-1'],
           datasets: [
             {
               data: {{ ten_days_case.Recovered }},
@@ -1182,7 +1193,7 @@
       const daily_deceased_line_chart = new Chart(document.getElementById('daily_deceased_line_chart'), {
         type: 'line',
         data: {
-          labels: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'],
+          labels: ['Day-10', 'Day-9', 'Day-8', 'Day-7', 'Day-6', 'Day-5', 'Day-4', 'Day-3', 'Day-2', 'Day-1'],
           datasets: [
             {
               data: {{ ten_days_case.Deceased }},
@@ -1338,7 +1349,7 @@
           labels: months,
           datasets: [
             {
-              label: "Current Year",
+              label: "Confirmed",
               data: {{ current_year_confirmed_case }},
               fill: false,
               borderColor: 'rgb(255, 0, 0 )',
@@ -1347,10 +1358,10 @@
               pointHoverRadius: 0,
             },
             {
-              label: "Last Year",
+              label: "Recovered",
               data: {{ current_year_recovered_case }},
               fill: false,
-              borderColor: colors.primary,
+              borderColor: 'rgb(0, 0, 255)',
               borderWidth: 2,
               pointRadius: 0,
               pointHoverRadius: 0,
@@ -1390,12 +1401,14 @@
         },
       })
 
-      const lineChartStateWise = new Chart(document.getElementById('lineChartStateWise'), {
+      const state_name_list = ['AN', 'AP', 'AR', 'AS', 'BR', 'CH', 'CT', 'DN', 'DL', 'GA', 'GJ', 'HR',
+                                'HP', 'JK', 'JH', 'KA', 'KL', 'LA', 'LD', 'MP', 'MH', 'MN', 'ML', 'MZ',
+                                  'NL', 'OR', 'PY', 'PB', 'RJ', 'SK', 'UN', 'TN', 'TG', 'TR', 'UP', 'UT', 'WB']
+
+      const lineChartConfirmed = new Chart(document.getElementById('lineChartConfirmed'), {
         type: 'line',
         data: {
-          labels: ['AN', 'AP', 'AR', 'AS', 'BR', 'CH', 'CT', 'DN', 'DL', 'GA', 'GJ', 'HR',
-                    'HP', 'JK', 'JH', 'KA', 'KL', 'LA', 'LD', 'MP', 'MH', 'MN', 'ML', 'MZ',
-                      'NL', 'OR', 'PY', 'PB', 'RJ', 'SK', 'UN', 'TN', 'TG', 'TR', 'UP', 'UT', 'WB'],
+          labels: state_name_list,
           datasets: [
             {
               label: "Confirmed",
@@ -1406,6 +1419,46 @@
               pointRadius: 0,
               pointHoverRadius: 0,
             },
+          ],
+        },
+        options: {
+          responsive: true,
+          scales: {
+            yAxes: [
+              {
+                gridLines: false,
+                ticks: {
+                  beginAtZero: false,
+                  stepSize: 3000,
+                  fontSize: 12,
+                  fontColor: '#97a4af',
+                  fontFamily: 'Open Sans, sans-serif',
+                  padding: 20,
+                },
+              },
+            ],
+            xAxes: [
+              {
+                gridLines: false,
+              },
+            ],
+          },
+          maintainAspectRatio: false,
+          legend: {
+            display: false,
+          },
+          tooltips: {
+            hasIndicator: true,
+            intersect: false,
+          },
+        },
+      })
+
+      const lineChartRecovered = new Chart(document.getElementById('lineChartRecovered'), {
+        type: 'line',
+        data: {
+          labels: state_name_list,
+          datasets: [
             {
               label: "Recovered",
               data: {{ get_daily_case.Recovered }},
@@ -1415,6 +1468,46 @@
               pointRadius: 0,
               pointHoverRadius: 0,
             },
+          ],
+        },
+        options: {
+          responsive: true,
+          scales: {
+            yAxes: [
+              {
+                gridLines: false,
+                ticks: {
+                  beginAtZero: false,
+                  stepSize: 1000,
+                  fontSize: 12,
+                  fontColor: '#97a4af',
+                  fontFamily: 'Open Sans, sans-serif',
+                  padding: 20,
+                },
+              },
+            ],
+            xAxes: [
+              {
+                gridLines: false,
+              },
+            ],
+          },
+          maintainAspectRatio: false,
+          legend: {
+            display: false,
+          },
+          tooltips: {
+            hasIndicator: true,
+            intersect: false,
+          },
+        },
+      })
+
+      const lineChartDeceased = new Chart(document.getElementById('lineChartDeceased'), {
+        type: 'line',
+        data: {
+          labels: state_name_list,
+          datasets: [
             {
               label: "Deceased",
               data: {{ get_daily_case.Deceased }},
@@ -1434,7 +1527,7 @@
                 gridLines: false,
                 ticks: {
                   beginAtZero: false,
-                  stepSize: 5000,
+                  stepSize: 20,
                   fontSize: 12,
                   fontColor: '#97a4af',
                   fontFamily: 'Open Sans, sans-serif',
