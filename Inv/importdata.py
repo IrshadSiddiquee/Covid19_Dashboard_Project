@@ -10,8 +10,9 @@ state_wise_per_day_case = pd.read_csv("https://api.covid19india.org/csv/latest/s
 def get_case(state):
     if state == "India":
         state = "Total"
-    sub = state_wise_cases[state_wise_cases['State'] == state].iloc[:, 0:5].to_dict('records')
-    return sub[0]
+    cases = state_wise_cases[state_wise_cases['State'] == state].iloc[:, 0:5].to_dict('records')
+
+    return cases[0]
 
 
 def get_daily_cases(last_day):
@@ -19,7 +20,6 @@ def get_daily_cases(last_day):
     confirmed_cases = []
     recovered_cases = []
     deceased_cases = []
-    # last_day = date.today() - timedelta(1)
     state_with_code = pd.DataFrame(state_wise_cases,
                                    columns=['State', 'State_code']).to_dict('record')
     for i in range(len(state_with_code)):
@@ -36,6 +36,7 @@ def get_daily_cases(last_day):
              'Confirmed': confirmed_cases,
              'Recovered': recovered_cases,
              'Deceased': deceased_cases}
+
     return cases
 
 
@@ -59,8 +60,7 @@ def get_state_wise_daily_case(state_code, current_date):
              'Recovered': case.iloc[1][str(state_code)],
              'Deceased': case.iloc[2][str(state_code)],
              'Active': round(case.iloc[0][str(state_code)] * 0.30)}
-    # cases.append({'Recovered': case.iloc[1][str(state_code)]})
-    # cases.append({'Deceased': case.iloc[2][str(state_code)]})
+
     return cases
 
 
@@ -171,7 +171,3 @@ def get_month_wise_case(state):
             'ten_days_case': ten_days_case,
             'get_daily_case': get_daily_case
             }
-
-
-sub = get_month_wise_case("Bihar")
-print(sub['ten_days_case'])
