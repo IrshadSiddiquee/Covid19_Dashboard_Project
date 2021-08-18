@@ -1071,9 +1071,15 @@
                       Active
                     </h6>
                     <span class="text-xl font-semibold">{{ Cases.Active }}</span>
+                    <span id='daily_active_case' class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md" style="color: green">
 
+                      {{ daily_cases.Active }}
+
+                    </span>
                     <div>
-                      Need to add line chart
+                      <div>
+                        <canvas id="daily_active_line_chart" style="width:210px; height:75px"></canvas>
+                      </div>
                     </div>
                   </div>
 
@@ -1240,7 +1246,11 @@
                   </div>
                 </div>
               </div>
-
+              <div>
+                <div class="col-span-1 relative p-4 h-72 bg-white rounded-md dark:bg-darker">
+                  <canvas id="lineChartStateWise"></canvas>
+                </div>
+              </div>
             </div>
           </main>
 
@@ -1862,8 +1872,6 @@
           random(),
           random(),
           random(),
-          random(),
-          random(),
         ]
       }
 
@@ -1893,6 +1901,48 @@
             {
               data: {{ ten_days_case.Confirmed }},
               borderColor: 'rgb(255, 0, 0 )',
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          scales: {
+            yAxes: [
+              {
+                gridLines: false,
+                ticks: {
+                  display: false,
+                },
+              },
+            ],
+            xAxes: [
+              {
+                gridLines: false,
+                ticks: {
+                  display: false,
+                },
+              },
+            ],
+          },
+          maintainAspectRatio: false,
+          legend: {
+            display: false,
+          },
+          tooltips: {
+            hasIndicator: false,
+            intersect: false,
+          },
+        },
+      })
+
+      const daily_active_line_chart = new Chart(document.getElementById('daily_active_line_chart'), {
+        type: 'line',
+        data: {
+          labels: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'],
+          datasets: [
+            {
+              data: randomData(),
+              borderColor: 'rgb(0, 255, 0 )',
             },
           ],
         },
@@ -2155,7 +2205,7 @@
                 gridLines: false,
                 ticks: {
                   beginAtZero: false,
-                  stepSize: 10,
+                  stepSize: 20,
                   fontSize: 12,
                   fontColor: '#97a4af',
                   fontFamily: 'Open Sans, sans-serif',
@@ -2179,6 +2229,76 @@
           },
         },
       })
+
+      const lineChartStateWise = new Chart(document.getElementById('lineChartStateWise'), {
+        type: 'line',
+        data: {
+          labels: ['AN', 'AP', 'AR', 'AS', 'BR', 'CH', 'CT', 'DN', 'DL', 'GA', 'GJ', 'HR',
+                    'HP', 'JK', 'JH', 'KA', 'KL', 'LA', 'LD', 'MP', 'MH', 'MN', 'ML', 'MZ',
+                      'NL', 'OR', 'PY', 'PB', 'RJ', 'SK', 'UN', 'TN', 'TG', 'TR', 'UP', 'UT', 'WB'],
+          datasets: [
+            {
+              label: "Confirmed",
+              data: {{ get_daily_case.Confirmed }},
+              fill: false,
+              borderColor: 'rgb(255, 0, 0 )',
+              borderWidth: 2,
+              pointRadius: 0,
+              pointHoverRadius: 0,
+            },
+            {
+              label: "Recovered",
+              data: {{ get_daily_case.Recovered }},
+              fill: false,
+              borderColor: 'rgb(0, 0, 255)',
+              borderWidth: 2,
+              pointRadius: 0,
+              pointHoverRadius: 0,
+            },
+            {
+              label: "Deceased",
+              data: {{ get_daily_case.Deceased }},
+              fill: false,
+              borderColor: 'rgb(128,128,128)',
+              borderWidth: 2,
+              pointRadius: 0,
+              pointHoverRadius: 0,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          scales: {
+            yAxes: [
+              {
+                gridLines: false,
+                ticks: {
+                  beginAtZero: false,
+                  stepSize: 5000,
+                  fontSize: 12,
+                  fontColor: '#97a4af',
+                  fontFamily: 'Open Sans, sans-serif',
+                  padding: 20,
+                },
+              },
+            ],
+            xAxes: [
+              {
+                gridLines: false,
+              },
+            ],
+          },
+          maintainAspectRatio: false,
+          legend: {
+            display: false,
+          },
+          tooltips: {
+            hasIndicator: true,
+            intersect: false,
+          },
+        },
+      })
+
 
     </script>
     <script>
