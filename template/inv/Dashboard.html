@@ -32,246 +32,18 @@
 
               <!-- Layouts links -->
               <form method="post" enctype="multipart/form-data" action="select_state">
-                      {% csrf_token %}
+                {% csrf_token %}
+                {% for state in get_states %}
 
-                      <input
-                        type = "Submit"
-                        value = "Chandigarh"
-                        name="state_name"
-                        style="width:170px;"
-                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
-                      >
-                      <input
-                        type = "Submit"
-                        value = "Delhi"
-                        name="state_name"
-                        style="width:170px;margin-top: 5px"
-                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
-                      >
-                       <input
-                        type = "Submit"
-                        value = "Haryana"
-                        name="state_name"
-                        style="width:170px;margin-top: 5px"
-                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
-                      >
-                       <input
-                        type = "Submit"
-                        value = "Himachal Pradesh"
-                        name="state_name"
-                        style="width:170px;margin-top: 5px"
-                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
-                      >
-                       <input
-                        type = "Submit"
-                        value = "Jammu and Kashmir"
-                        name="state_name"
-                        style="width:170px;margin-top: 5px"
-                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
-                      >
-                       <input
-                        type = "Submit"
-                        value = "Punjab"
-                        name="state_name"
-                        style="width:170px;margin-top: 5px"
-                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
-                      >
-                       <input
-                        type = "Submit"
-                        value = "Rajasthan"
-                        name="state_name"
-                        style="width:170px;margin-top: 5px"
-                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
-                      >
-              <input
-                        type = "Submit"
-                        value = "Andhra Pradesh"
-                        name="state_name"
-                        style="width:170px;margin-top: 5px"
-                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
-                      >
-                    <input
-                        type = "Submit"
-                        value = "Assam"
-                        name="state_name"
-                        style="width:170px;margin-top: 5px"
-                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
-                      >
-                    <input
-                        type = "Submit"
-                        value = "Manipur"
-                        name="state_name"
-                        style="width:170px;margin-top: 5px"
-                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
-                      >
-                    <input
-                        type = "Submit"
-                        value = "Meghalaya"
-                        name="state_name"
-                        style="width:170px;margin-top: 5px"
-                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
-                      >
-                    <input
-                        type = "Submit"
-                        value = "Mizoram"
-                        name="state_name"
-                        style="width:170px;margin-top: 5px"
-                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
-                      >
-                    <input
-                        type = "Submit"
-                        value = "Nagaland"
-                        name="state_name"
-                        style="width:170px;margin-top: 5px"
-                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
-                      >
-                    <input
-                        type = "Submit"
-                        value = "Tripura"
-                        name="state_name"
-                        style="width:170px;margin-top: 5px"
-                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
-                      >
                   <input
-                        type = "Submit"
-                        value = "Andaman and Nicobar Islands"
-                        name="state_name"
-                        style="width:170px;margin-top: 5px"
-                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
-                      >
-                    <input
-                        type = "Submit"
-                        value = "Bihar"
-                        name="state_name"
-                        style="width:170px;margin-top: 5px"
-                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
-                      >
-                    <input
-                        type = "Submit"
-                        value = "Jharkhand"
-                        name="state_name"
-                        style="width:170px;margin-top: 5px"
-                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
-                      >
-                    <input
-                        type = "Submit"
-                        value = "Odisha"
-                        name="state_name"
-                        style="width:170px;margin-top: 5px"
-                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
-                      >
-                    <input
-                        type = "Submit"
-                        value = "Sikkim"
-                        name="state_name"
-                        style="width:170px;margin-top: 5px"
-                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
-                      >
-                    <input
-                        type = "Submit"
-                        value = "West Bengal"
-                        name="state_name"
-                        style="width:170px;margin-top: 5px"
-                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
-                      >
-                    <input
-                        type = "Submit"
-                        value = "Chhattisgarh"
-                        name="state_name"
-                        style="width:170px;margin-top: 5px"
-                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
-                      >
-                    <input
-                        type = "Submit"
-                        value = "Madhya Pradesh"
-                        name="state_name"
-                        style="width:170px;margin-top: 5px"
-                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
-                      >
-                    <input
-                        type = "Submit"
-                        value = "Uttar Pradesh"
-                        name="state_name"
-                        style="width:170px;margin-top: 5px"
-                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
-                      >
-                    <input
-                        type = "Submit"
-                        value = "Uttarakhand"
-                        name="state_name"
-                        style="width:170px;margin-top: 5px"
-                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
-                      >
-              <input
-                        type = "Submit"
-                        value = "Dadra and Nagar Haveli and Daman and Diu"
-                        name="state_name"
-                        style="width:170px;margin-top: 5px"
-                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
-                      >
-                    <input
-                        type = "Submit"
-                        value = "Goa"
-                        name="state_name"
-                        style="width:170px;margin-top: 5px"
-                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
-                      >
-                    <input
-                        type = "Submit"
-                        value = "Gujarat"
-                        name="state_name"
-                        style="width:170px;margin-top: 5px"
-                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
-                      >
-                    <input
-                        type = "Submit"
-                        value = "Maharashtra"
-                        name="state_name"
-                        style="width:170px;margin-top: 5px"
-                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
-                      >
-                    <input
-                        type = "Submit"
-                        value = "Andhra Pradesh"
-                        name="state_name"
-                        style="width:170px;margin-top: 5px"
-                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
-                      >
-                    <input
-                        type = "Submit"
-                        value = "Karnataka"
-                        name="state_name"
-                        style="width:170px;margin-top: 5px"
-                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
-                      >
-                    <input
-                        type = "Submit"
-                        value = "Kerala"
-                        name="state_name"
-                        style="width:170px;margin-top: 5px"
-                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
-                      >
-                    <input
-                        type = "Submit"
-                        value = "Lakshadweep"
-                        name="state_name"
-                        style="width:170px;margin-top: 5px"
-                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
-                      >
-                    <input
-                        type = "Submit"
-                        value = "Puducherry"
-                        name="state_name"
-                        style="width:170px;margin-top: 5px"
-                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
-                      >
-                    <input
-                        type = "Submit"
-                        value = "Tamil Nadu"
-                        name="state_name"
-                        style="width:170px;margin-top: 5px"
-                        class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
-                      >
+                    type = "Submit"
+                    value =  {{ state|safe }}
+                    name="state_name"
+                    style="width:170px; margin-bottom: 10px"
+                    class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+                  >
+
+                {% endfor %}
               </form>
             </nav>
 
@@ -1468,7 +1240,7 @@
                 gridLines: false,
                 ticks: {
                   beginAtZero: true,
-                  stepSize: 50,
+                  stepSize: 20,
                   fontSize: 12,
                   fontColor: '#97a4af',
                   fontFamily: 'Open Sans, sans-serif',

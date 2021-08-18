@@ -52,6 +52,30 @@ def get_state_code(state):
     return state_code
 
 
+def get_state():
+    all_state = []
+    state_with_code = pd.DataFrame(state_wise_cases,
+                                   columns=['State', 'State_code']).to_dict('record')
+    for i in range(len(state_with_code)):
+        if state_with_code[i]['State'] != 'Total':
+            all_state.append(state_with_code[i]['State'])
+
+    return all_state
+
+
+def get_full_state_name(state):
+    all_state = ""
+    state_with_code = pd.DataFrame(state_wise_cases,
+                                   columns=['State', 'State_code']).to_dict('record')
+
+    for i in range(len(state_with_code)):
+        if state_with_code[i]['State'].split(" ", 1)[0] == state:
+            all_state = state_with_code[i]['State']
+            break
+
+    return all_state
+
+
 def get_state_wise_daily_case(state_code, current_date):
     cases = ""
     case = pd.DataFrame(state_wise_per_day_case.loc[(state_wise_per_day_case["Date_YMD"] == str(current_date))],
@@ -99,6 +123,12 @@ def get_month_wise_case(state):
     last_deceased_case = 0
     state_code = ""
     daily_case = ""
+
+    if state == "India":
+        state = 'India'
+    else:
+        state = get_full_state_name(state)
+
     this_year = int(date.today().year)
     last_day = date.today() - timedelta(1)
     clean_date = (pd.to_datetime(dfMonthWise['Date'].str[:-3]) - pd.Timedelta(days=1)).unique()
@@ -158,7 +188,7 @@ def get_month_wise_case(state):
     daily_cases = get_state_wise_daily_case(state_code, last_day)
     ten_days_case = get_ten_days_cases(state_code)
     get_daily_case = get_daily_cases(last_day)
-
+    get_states = get_state()
     return {'Month': month,
             'current_year_confirmed_case': current_year_confirmed_case,
             'current_year_deceased_case': current_year_deceased_case,
@@ -169,5 +199,6 @@ def get_month_wise_case(state):
             'Cases': case_data,
             'daily_cases': daily_cases,
             'ten_days_case': ten_days_case,
-            'get_daily_case': get_daily_case
+            'get_daily_case': get_daily_case,
+            'get_states': get_states
             }
