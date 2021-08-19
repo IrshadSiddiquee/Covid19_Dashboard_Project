@@ -130,7 +130,7 @@ def get_month_wise_case(state):
         state = get_full_state_name(state)
 
     this_year = int(date.today().year)
-    last_day = date.today() - timedelta(1)
+    last_day = date.today() - timedelta(2)
     clean_date = (pd.to_datetime(dfMonthWise['Date'].str[:-3]) - pd.Timedelta(days=1)).unique()
     for i in range(len(clean_date)):
         cleaned_date = pd.Timestamp(np.datetime64(clean_date[i]))
