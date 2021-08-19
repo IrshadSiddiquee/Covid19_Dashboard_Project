@@ -37,7 +37,7 @@
 
                   <input
                     type = "Submit"
-                    value =  {{ state|safe }}
+                    value =  {{ state }}
                     name="state_name"
                     style="width:170px; margin-bottom: 10px"
                     class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
@@ -657,23 +657,23 @@
               </svg>
             </button>
           </div>
-          <div class="flex flex-col h-screen" x-data="{ activeTabe: 'action' }">
+          <div class="flex flex-col h-screen" x-data="{ activeTable: 'action' }">
             <!-- Panel header -->
             <div class="flex-shrink-0">
               <div class="flex items-center justify-between px-4 pt-4 border-b dark:border-primary-darker">
                 <h2 id="notificationPanelLabel" class="pb-4 font-semibold">Notifications</h2>
                 <div class="space-x-2">
                   <button
-                    @click.prevent="activeTabe = 'action'"
+                    @click.prevent="activeTable = 'action'"
                     class="px-px pb-4 transition-all duration-200 transform translate-y-px border-b focus:outline-none"
-                    :class="{'border-primary-dark dark:border-primary': activeTabe == 'action', 'border-transparent': activeTabe != 'action'}"
+                    :class="{'border-primary-dark dark:border-primary': activeTable == 'action', 'border-transparent': activeTable != 'action'}"
                   >
                     Action
                   </button>
                   <button
-                    @click.prevent="activeTabe = 'user'"
+                    @click.prevent="activeTable = 'user'"
                     class="px-px pb-4 transition-all duration-200 transform translate-y-px border-b focus:outline-none"
-                    :class="{'border-primary-dark dark:border-primary': activeTabe == 'user', 'border-transparent': activeTabe != 'user'}"
+                    :class="{'border-primary-dark dark:border-primary': activeTable == 'user', 'border-transparent': activeTable != 'user'}"
                   >
                     User
                   </button>
@@ -684,7 +684,7 @@
             <!-- Panel content (tabs) -->
             <div class="flex-1 pt-4 overflow-y-hidden hover:overflow-y-auto">
               <!-- Action tab -->
-              <div class="space-y-4" x-show.transition.in="activeTabe == 'action'">
+              <div class="space-y-4" x-show.transition.in="activeTable == 'action'">
                 <a href="#" class="block">
                   <div class="flex px-4 space-x-4">
                     <div class="relative flex-shrink-0">
@@ -794,7 +794,7 @@
               </div>
 
               <!-- User tab -->
-              <div class="space-y-4" x-show.transition.in="activeTabe == 'user'">
+              <div class="space-y-4" x-show.transition.in="activeTable == 'user'">
                 <a href="#" class="block">
                   <div class="flex px-4 space-x-4">
                     <div class="relative flex-shrink-0">
