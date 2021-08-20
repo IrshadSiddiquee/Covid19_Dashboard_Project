@@ -82,28 +82,7 @@
               </a>
 
               <!-- Mobile sub menu button -->
-              <button
-                @click="isMobileSubMenuOpen = !isMobileSubMenuOpen"
-                class="p-1 transition-colors duration-200 rounded-md text-primary-lighter bg-primary-50 hover:text-primary hover:bg-primary-100 dark:hover:text-light dark:hover:bg-primary-dark dark:bg-dark md:hidden focus:outline-none focus:ring"
-              >
-                <span class="sr-only">Open sub manu</span>
-                <span aria-hidden="true">
-                  <svg
-                    class="w-8 h-8"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
-                    />
-                  </svg>
-                </span>
-              </button>
+
 
               <!-- Desktop Right buttons -->
               <nav aria-label="Secondary" class="hidden space-x-2 md:flex md:items-center" >
@@ -197,96 +176,69 @@
 
             <!-- Content -->
             <div class="mt-2">
+
               <!-- State cards -->
+
               <div class="grid grid-cols-1 gap-8 p-4 lg:grid-cols-2 xl:grid-cols-4">
-                <!-- Value card -->
-                <div class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
-                  <div>
-                    <h6
-                      class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
-                    >
+                <!-- Bar chart card -->
+                <div class="bg-white rounded-md dark:bg-darker">
+                  <div class="p-4">
+                    <h6 class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light">
                       Confirmed
                     </h6>
                     <span class="text-xl font-semibold">{{ Cases.Confirmed }}</span>
-                    <span id='daily_confirmed_case' class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md" style="color: red">
-
+                    <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md" style="color: red;">
                       {{ daily_cases.Confirmed }}
-
                     </span>
-                    <div>
-                      <div>
-                        <canvas id="daily_confirmed_line_chart" style="width:210px; height:75px;  padding-top:10px  "></canvas>
-                      </div>
-                    </div>
                   </div>
-
+                  <div class="relative p-4 h-20">
+                    <canvas id="daily_confirmed_line_chart"></canvas>
+                  </div>
                 </div>
 
-                <!-- Users card -->
-                <div class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
-                  <div>
-                    <h6
-                      class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
-                    >
+                <div class="bg-white rounded-md dark:bg-darker">
+                  <div class="p-4">
+                    <h6 class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light">
                       Active
                     </h6>
                     <span class="text-xl font-semibold">{{ Cases.Active }}</span>
-                    <span id='daily_active_case' class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md" style="color: green">
-
+                    <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md" style="color: Green;">
                       {{ daily_cases.Active }}
-
                     </span>
-                    <div>
-                      <div>
-                        <canvas id="daily_active_line_chart" style="width:210px; height:75px; padding-top:10px"></canvas>
-                      </div>
-                    </div>
                   </div>
-
-
+                  <div class="relative p-4 h-20">
+                    <canvas id="daily_active_line_chart"></canvas>
+                  </div>
                 </div>
 
-                <!-- Orders card -->
-                <div class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
-                  <div>
-                    <h6
-                      class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
-                    >
+                <div class="bg-white rounded-md dark:bg-darker">
+                  <div class="p-4">
+                    <h6 class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light">
                       Recovered
                     </h6>
                     <span class="text-xl font-semibold">{{ Cases.Recovered }}</span>
-                    <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md" style="color: blue">
+                    <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md" style="color: blue;">
                       {{ daily_cases.Recovered }}
                     </span>
-                    <div>
-                      <div>
-                        <canvas id="daily_recovered_line_chart" style="width:210px; height:75px; padding-top:10px"></canvas>
-                      </div>
-                    </div>
                   </div>
-
-
+                  <div class="relative p-4 h-20">
+                    <canvas id="daily_recovered_line_chart"></canvas>
+                  </div>
                 </div>
 
-                <!-- Tickets card -->
-                <div class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
-                  <div>
-                    <h6
-                      class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
-                    >
+                <div class="bg-white rounded-md dark:bg-darker">
+                  <div class="p-4">
+                    <h6 class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light">
                       Deceased
                     </h6>
                     <span class="text-xl font-semibold">{{ Cases.Deaths }}</span>
                     <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md" style="color: black;">
                       {{ daily_cases.Deceased }}
                     </span>
-                    <div>
-                      <div>
-                        <canvas id="daily_deceased_line_chart" style="width:210px; height:75px; padding-top:10px"></canvas>
-                      </div>
-                    </div>
                   </div>
-
+                  <div class="relative p-4 h-20">
+                    <canvas id="daily_deceased_line_chart"></canvas>
+                  </div>
                 </div>
               </div>
 
@@ -406,22 +358,58 @@
                   </div>
                 </div>
               </div>
-              <div>
-                <div class="relative p-4 h-72 bg-white rounded-md dark:bg-darker" style="height: 220px; width:1060px; margin-left: 16px; margin-bottom: 16px">
-                  <canvas id="lineChartConfirmed"></canvas>
-                </div>
-              </div>
-              <div>
-                <div class="relative p-4 h-72 bg-white rounded-md dark:bg-darker" style="height: 220px; width:1060px; margin-left: 16px; margin-bottom: 16px">
-                  <canvas id="lineChartRecovered"></canvas>
+
+
+
+              <div class="grid grid-cols-1 p-4 space-y-8 lg:gap-8 lg:space-y-0 lg:grid-cols-1">
+                <!-- Bar chart card -->
+                <div class="col-span-2 bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
+                  <!-- Card header -->
+                  <div class="flex items-center justify-between p-4 border-b dark:border-primary">
+                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">
+                      State wise Confirmed Case</h4>
+
+                  </div>
+                  <!-- Chart -->
+                  <div class="relative p-4 h-72">
+                    <canvas id="lineChartConfirmed"></canvas>
+                  </div>
                 </div>
               </div>
 
-              <div>
-                <div class="relative p-4 h-72 bg-white rounded-md dark:bg-darker" style="height: 220px; width:1060px; margin-left: 16px; margin-bottom: 16px">
-                  <canvas id="lineChartDeceased"></canvas>
+              <div class="grid grid-cols-1 p-4 space-y-8 lg:gap-8 lg:space-y-0 lg:grid-cols-1">
+                <!-- Bar chart card -->
+                <div class="col-span-2 bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
+                  <!-- Card header -->
+                  <div class="flex items-center justify-between p-4 border-b dark:border-primary">
+                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">
+                       State wise Recovered Case</h4>
+
+                  </div>
+                  <!-- Chart -->
+                  <div class="relative p-4 h-72">
+                    <canvas id="lineChartRecovered"></canvas>
+                  </div>
                 </div>
               </div>
+
+
+              <div class="grid grid-cols-1 p-4 space-y-8 lg:gap-8 lg:space-y-0 lg:grid-cols-1">
+                <!-- Bar chart card -->
+                <div class="col-span-2 bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
+                  <!-- Card header -->
+                  <div class="flex items-center justify-between p-4 border-b dark:border-primary">
+                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">
+                       State wise Deceased Case</h4>
+
+                  </div>
+                  <!-- Chart -->
+                  <div class="relative p-4 h-72">
+                    <canvas id="lineChartDeceased"></canvas>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </main>
 

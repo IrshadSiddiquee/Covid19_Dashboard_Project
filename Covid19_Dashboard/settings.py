@@ -26,15 +26,22 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'template')
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-# SECRET_KEY = 'django-insecure-e^+1wrxhbez=byog7t^6-bdvkw0hd(q#rcj1mesks+jt(v5u+@'
-SECRET_KEY = os.environ['SECRET_KEY']
+
+# Local
+SECRET_KEY = 'django-insecure-e^+1wrxhbez=byog7t^6-bdvkw0hd(q#rcj1mesks+jt(v5u+@'
+
+# Production
+# SECRET_KEY = os.environ['SECRET_KEY']
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['covid19dashboard190821.herokuapp.com', 'localhost']
-# ALLOWED_HOSTS = ['*']
+# Production
+# ALLOWED_HOSTS = ['covid19dashboard190821.herokuapp.com', 'localhost']
+
+#Local
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
