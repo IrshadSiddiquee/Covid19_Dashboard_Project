@@ -28,20 +28,20 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'template')
 
 
 # Local
-SECRET_KEY = 'django-insecure-e^+1wrxhbez=byog7t^6-bdvkw0hd(q#rcj1mesks+jt(v5u+@'
+# SECRET_KEY = 'django-insecure-e^+1wrxhbez=byog7t^6-bdvkw0hd(q#rcj1mesks+jt(v5u+@'
 
 # Production
-# SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = os.environ['SECRET_KEY']
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 # Production
-# ALLOWED_HOSTS = ['covid19dashboard190821.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['covid19dashboard190821.herokuapp.com', 'localhost']
 
 #Local
-ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['*']
 
 # Application definition
 

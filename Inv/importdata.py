@@ -78,21 +78,24 @@ def get_full_state_name(state):
 
 def get_state_wise_daily_case(state_code, current_date):
     cases = ""
-    case = pd.DataFrame(state_wise_per_day_case.loc[(state_wise_per_day_case["Date_YMD"] == str(current_date))],
-                        columns=[str(state_code)])
-    cases = {'Confirmed': case.iloc[0][str(state_code)],
-             'Recovered': case.iloc[1][str(state_code)],
-             'Deceased': case.iloc[2][str(state_code)],
-             'Active': round(case.iloc[0][str(state_code)] * 0.30)}
+    try:
+        case = pd.DataFrame(state_wise_per_day_case.loc[(state_wise_per_day_case["Date_YMD"] == str(current_date))],
+                            columns=[str(state_code)])
+        cases = {'Confirmed': case.iloc[0][str(state_code)],
+                 'Recovered': case.iloc[1][str(state_code)],
+                 'Deceased': case.iloc[2][str(state_code)],
+                 'Active': round(case.iloc[0][str(state_code)] * 0.30)}
 
-    return cases
+        return cases
+
+    except:
+        return 0
 
 
-def get_ten_days_cases(state_code):
+def get_ten_days_cases(state_code, last_ten_days):
     confirmed_cases = []
     recovered_cases = []
     deceased_cases = []
-    last_ten_days = date.today() - timedelta(10)
     case = pd.DataFrame(state_wise_per_day_case.loc[(state_wise_per_day_case["Date_YMD"] >= str(last_ten_days))],
                         columns=[str(state_code)])
     for i in range(0, len(case), 3):
@@ -129,8 +132,8 @@ def get_month_wise_case(state):
     else:
         state = get_full_state_name(state)
 
+    iDay = 1
     this_year = int(date.today().year)
-    last_day = date.today() - timedelta(2)
     clean_date = (pd.to_datetime(dfMonthWise['Date'].str[:-3]) - pd.Timedelta(days=1)).unique()
     for i in range(len(clean_date)):
         cleaned_date = pd.Timestamp(np.datetime64(clean_date[i]))
@@ -185,8 +188,20 @@ def get_month_wise_case(state):
     else:
         state_code = get_state_code(state)
 
+    last_ten_days = 10
+    iDay = 1
+    last_day = date.today() - timedelta(iDay)
+    daily_cases = 0
     daily_cases = get_state_wise_daily_case(state_code, last_day)
-    ten_days_case = get_ten_days_cases(state_code)
+    while daily_cases == 0:
+        iDay += 1
+        last_ten_days += 1
+        last_day = date.today() - timedelta(iDay)
+        daily_cases = get_state_wise_daily_case(state_code, last_day)
+
+    last_day = date.today() - timedelta(last_ten_days)
+    ten_days_case = get_ten_days_cases(state_code, last_day)
+
     get_daily_case = get_daily_cases(last_day)
     get_states = get_state()
     return {'Month': month,
@@ -202,3 +217,19 @@ def get_month_wise_case(state):
             'get_daily_case': get_daily_case,
             'get_states': get_states
             }
+
+
+# last_ten_days = 10
+# iDay = 1
+# last_day = date.today() - timedelta(iDay)
+# daily_cases = 0
+# daily_cases = get_state_wise_daily_case("TT", last_day)
+# while daily_cases == 0:
+#     iDay += 1
+#     last_ten_days += 1
+#     last_day = date.today() - timedelta(iDay)
+#     daily_cases = get_state_wise_daily_case("TT", last_day)
+#
+# last_day = date.today() - timedelta(last_ten_days)
+# ten_days_case = get_ten_days_cases("TT", last_day)
+# print(ten_days_case)
