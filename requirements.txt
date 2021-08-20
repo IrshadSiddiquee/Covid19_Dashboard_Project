@@ -1,3 +1,4 @@
+pip
 absl-py
 alabaster
 anaconda-client
@@ -176,7 +177,6 @@ pep8
 pexpect
 pickleshare
 Pillow
-pip
 pkginfo
 plotly
 pluggy
