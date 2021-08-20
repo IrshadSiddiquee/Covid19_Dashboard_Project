@@ -1,1 +1,1 @@
-web: gunicorn Covid19_Dashboard.wsgi --log-file -
+web: waitress-serve --port=$PORT Covid19_Dashboard.wsgi:application
