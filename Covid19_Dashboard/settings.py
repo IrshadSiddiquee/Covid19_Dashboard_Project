@@ -28,20 +28,20 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'template')
 
 
 # Local
-# SECRET_KEY = 'django-insecure-e^+1wrxhbez=byog7t^6-bdvkw0hd(q#rcj1mesks+jt(v5u+@'
+SECRET_KEY = 'django-insecure-e^+1wrxhbez=byog7t^6-bdvkw0hd(q#rcj1mesks+jt(v5u+@'
 
 # Production
-SECRET_KEY = os.environ['SECRET_KEY']
+# SECRET_KEY = os.environ['SECRET_KEY']
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # Production
-ALLOWED_HOSTS = ['covid19dashboard190821.herokuapp.com', 'localhost']
+# ALLOWED_HOSTS = ['covid19dashboard190821.herokuapp.com', 'localhost']
 
 #Local
-# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -131,8 +131,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-MEDIA_URL = '/image/'
-STATIC_ROOT = [os.path.join(BASE_DIR, 'staticfiles')]
+# STATIC_ROOT = [os.path.join(BASE_DIR, 'staticfiles')]
 
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 # Default primary key field type
