@@ -35,7 +35,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # Production
 ALLOWED_HOSTS = ['covid19dashboard190821.herokuapp.com', 'localhost']
@@ -52,7 +52,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Inv',
+    'covid19dashboard',
 ]
 
 MIDDLEWARE = [
